@@ -13,30 +13,30 @@ namespace Blog.Infrastructure.Repositories
 
         }
 
-        public async Task<TEntity> AddAsync(TEntity entity)
+        public virtual async Task<TEntity> AddAsync(TEntity entity)
         {
             var result = await _context.Set<TEntity>().AddAsync(entity);
             _context.SaveChanges();
             return result.Entity;
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TEntity?> GetByIdAsync(int id)
+        public virtual async Task<TEntity?> GetByIdAsync(int id)
         {
             return await _context.Set<TEntity>().FindAsync(id);
         }
 
-        public async Task Remove(TEntity entity)
+        public virtual async Task Remove(TEntity entity)
         {
             _context.Set<TEntity>().Remove(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<TEntity> Update(TEntity entity)
+        public virtual async Task<TEntity> Update(TEntity entity)
         {
             var result = _context.Set<TEntity>().Update(entity);
             await _context.SaveChangesAsync();
