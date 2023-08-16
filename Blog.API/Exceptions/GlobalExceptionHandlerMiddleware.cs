@@ -5,10 +5,12 @@ namespace Blog.API.Exceptions
     public class GlobalExceptionHandlerMiddleware
     {
         private readonly RequestDelegate _next;
+        private readonly ILogger<GlobalExceptionHandlerMiddleware> _logger;
 
-        public GlobalExceptionHandlerMiddleware(RequestDelegate next)
+        public GlobalExceptionHandlerMiddleware(RequestDelegate next, ILogger<GlobalExceptionHandlerMiddleware> logger)
         {
             _next = next;
+            _logger = logger;
         }
 
         public async Task Invoke(HttpContext context)
@@ -25,6 +27,8 @@ namespace Blog.API.Exceptions
 
         private async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
+            _logger.LogError(exception, "An error occurred while processing the request.");
+
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
