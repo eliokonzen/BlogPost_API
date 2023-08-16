@@ -1,7 +1,4 @@
-﻿using System.Net.Http.Json;
-using System.Net;
-using Blog.API.DTOs;
-using FluentAssertions;
+﻿using Blog.API.DTOs;
 
 namespace Blog.Api.Test.Integration.BlogPost
 {

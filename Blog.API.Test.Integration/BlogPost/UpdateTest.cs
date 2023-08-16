@@ -1,9 +1,4 @@
-﻿using Blog.API.DTOs;
-using System.Net.Http.Json;
-using System.Net;
-using FluentAssertions;
-
-namespace Blog.Api.Test.Integration.BlogPost;
+﻿namespace Blog.Api.Test.Integration.BlogPost;
 
 public class UpdateTest : TestBase
 {

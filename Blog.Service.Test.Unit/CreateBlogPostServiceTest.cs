@@ -1,7 +1,4 @@
-﻿using Blog.Core.Entities;
-using Blog.Core.Repositories;
-
-namespace Blog.Service.Test.Unit;
+﻿namespace Blog.Service.Test.Unit;
 
 public class CreateBlogPostServiceTest
 {
