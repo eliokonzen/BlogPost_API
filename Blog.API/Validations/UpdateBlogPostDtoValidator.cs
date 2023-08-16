@@ -7,9 +7,9 @@ namespace Blog.API.Validations
     {
         public UpdateBlogPostDtoValidator()
         {
-            RuleFor(x => x.Title).NotEmpty();
+            RuleFor(x => x.Title).MinimumLength(3);
 
-            RuleFor(x => x.Content).NotEmpty();
+            RuleFor(x => x.Content).MinimumLength(5);
         }
     }
 }
